@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculator</title>
+    <style>
+         *{
+    margin:0;
+    padding:0;
+}
+button{
+    margin-top:10%;
+    font-size:30px ;
+    width:100px;
+    height:80px;
+    border-radius: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    border:none;
+}
+
+#calculate{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:.5rem;
+}
+input{
+    width:420px;
+    height:60px;
+    font-size: 50px;
+    font-weight: bold;
+    text-align: right;
+}
+
+#calculator{
+    margin:5%;
+    padding:25px;
+    width:420px;
+    height:auto;
+    background-color: rgb(221, 12, 12);
+    border-radius: 10px;
+    gap:5rem;
+}
+button:hover{
+    background-color: rgba(255, 255, 255, 0.735);
+}
+.operator-btn{
+    background-color: rgb(75, 23, 179);
+}
+.operator-btn:hover{
+    background-color: rgba(255, 166, 0, 0.616);
+}
+    </style>
+</head>
+<body>
+    <div id="calculator">
+            <input id="display" placeholder="0" readonly>
+        <div id="calculate">
+            <button class="btn" onclick="appendTo('7')">7</button>
+            <button class="btn" onclick="appendTo('8')">8</button>
+            <button class="btn" onclick="appendTo('9')">9</button>
+            <button class="operator-btn" onclick="appendTo('+')">+</button>
+            <button class="btn" onclick="appendTo('4')">4</button>
+            <button class="btn" onclick="appendTo('5')">5</button>
+            <button class="btn" onclick="appendTo('6')">6</button>
+            <button class="operator-btn" onclick="appendTo('-')">-</button>
+            <button class="btn" onclick="appendTo('1')">1</button>
+            <button class="btn" onclick="appendTo('2')">2</button>
+            <button class="btn" onclick="appendTo('3')">3</button>
+            <button class="operator-btn" onclick="appendTo('')"></button>
+            <button class="btn" onclick="appendTo('0')">0</button>
+            <button class="btn" onclick="calculate('=')">=</button>
+            <button class="btn" onclick="appendTo('.')">.</button>
+            <button class="operator-btn" onclick="appendTo('/')">/</button>
+            <button style="margin-left:320%;" class="operator-btn" onclick="clearDisplay()">C</button>
+        </div>
+    </div>
+    <script>
+        let display=document.getElementById("display");
+
+        function appendTo(input){
+        display.value += input;
+        }
+        function calculate(){
+        display.value=eval(display.value);
+        }
+        function clearDisplay(){
+        display.value=" ";
+        }
+    </script>
+</body>
+</html>
